@@ -42,17 +42,15 @@ skirt_radius = skirt_diameter / 2;
 // Z = length of lure
 // R = radius from centerline
 //
-// The front center is recessed to create the shallow concave
-// face shown in the reference lure.
-//
-// Maximum body diameter is exactly 32 mm.
-// There is no cylindrical 32 mm section.
+// IMPORTANT:
+// - Points must be ordered with increasing Z for a valid polygon.
+// - This list defines a single continuous radial profile.
 // ============================================================
 
 profile = [
-
-    // Front concave cup
+    // Front center region (shallow concave entry)
     [0.00, cup_depth],
+    [1.50, 3.20],
     [3.00, 3.45],
     [6.00, 3.30],
     [9.00, 2.90],
@@ -60,13 +58,7 @@ profile = [
     [12.50, 1.20],
     [13.50, 0.00],
 
-    // Rounded nose
-    [4.00, 2.00],
-    [5.00, 5.00],
-    [6.00, 8.00],
-    [8.00, 11.00],
-    [10.00, 12.50],
-    [12.00, 14.00],
+    // Transition to outer nose/body
     [14.00, 14.75],
     [16.00, 15.20],
     [18.00, 15.55],
@@ -87,8 +79,6 @@ profile = [
     [51.00, 12.00],
     [53.00, 11.00],
     [55.00, 10.00],
-
-    // Rear shoulder
     [56.00, 9.00],
 
     // 18 mm skirt collar
@@ -109,7 +99,10 @@ module lure_body()
     rotate_extrude(angle = 360, convexity = 20)
         polygon(
             points = concat(
-                [for (point = profile) [point[1], point[0]]],
+                // Convert [z,r] -> [x,y] where x = radius, y = z
+                [for (p = profile) [p[1], p[0]]],
+
+                // Close polygon along axis back to start
                 [
                     [0, profile[len(profile) - 1][0]],
                     [0, profile[0][0]]
