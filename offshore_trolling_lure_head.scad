@@ -48,40 +48,28 @@ skirt_radius = skirt_diameter / 2;
 // ============================================================
 
 profile = [
-    // Front center region (shallow concave entry)
-    [0.00, cup_depth],
-    [1.50, 3.20],
-    [3.00, 3.45],
-    [6.00, 3.30],
-    [9.00, 2.90],
-    [11.00, 2.20],
-    [12.50, 1.20],
-    [13.50, 0.00],
-
-    // Transition to outer nose/body
+    // Front (start slightly off axis to avoid degenerate face)
+    [0.00, 0.20],
+    [1.20, 1.20],
+    [2.60, 2.40],
+    [4.20, 5.00],
+    [6.20, 8.20],
+    [8.60, 11.20],
+    [11.20, 13.40],
     [14.00, 14.75],
-    [16.00, 15.20],
     [18.00, 15.55],
-    [21.00, 15.85],
     [24.00, max_radius],
 
-    // Full bulbous body
+    // Mid body
     [27.00, 15.95],
-    [30.00, 15.85],
     [33.00, 15.65],
-    [36.00, 15.40],
     [39.00, 15.00],
-    [42.00, 14.55],
-
-    // Rear body closing
     [45.00, 14.00],
-    [48.00, 13.20],
     [51.00, 12.00],
-    [53.00, 11.00],
     [55.00, 10.00],
     [56.00, 9.00],
 
-    // 18 mm skirt collar
+    // Skirt collar
     [overall_length - skirt_length + 2.00, skirt_radius],
     [overall_length - skirt_length + 4.00, skirt_radius],
     [overall_length - skirt_length + 6.00, skirt_radius],
