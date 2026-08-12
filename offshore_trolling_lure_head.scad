@@ -54,6 +54,7 @@ module center_bore() {
         cylinder(h = overall_length + 2, r = bore_radius);
 }
 
+scale([0.5, 0.5, 0.5])
 difference() {
     lure_body();
     center_bore();
