@@ -11,7 +11,7 @@ max_radius   = max_diameter / 2;
 bore_radius  = leader_bore / 2;
 skirt_radius = skirt_diameter / 2;
 
-// Smooth, monotonic profile (no mid-body ring/shoulder)
+// Smoother profile with less mid-body waist
 profile = [
     [0.0,  0.6],
     [2.0,  1.8],
@@ -21,15 +21,15 @@ profile = [
     [12.0, 13.2],
     [16.0, 15.0],
     [20.0, max_radius],   // single apex
-    [24.0, 15.6],
-    [28.0, 15.2],
-    [32.0, 14.7],
-    [36.0, 14.1],
-    [40.0, 13.5],
-    [44.0, 12.8],
-    [48.0, 12.0],
-    [52.0, 11.0],
-    [56.0, 10.0],
+    [24.0, 16.0],
+    [28.0, 16.4],
+    [32.0, 16.8],
+    [36.0, 17.2],
+    [40.0, 17.2],
+    [44.0, 17.0],
+    [48.0, 16.6],
+    [52.0, 16.0],
+    [56.0, 15.2],
     [overall_length - skirt_length + 2.0, skirt_radius],
     [overall_length - skirt_length + 6.0, skirt_radius],
     [overall_length, skirt_radius]
