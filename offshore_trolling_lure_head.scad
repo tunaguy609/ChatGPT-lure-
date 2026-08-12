@@ -44,7 +44,7 @@ module lure_2d_profile() {
 }
 
 module lure_body() {
-    rotate_extrude(convexity = 20)
+    rotate_extrude(convexity = 20, $fn = 6)
         lure_2d_profile();
 }
 
