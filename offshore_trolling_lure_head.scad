@@ -11,7 +11,7 @@ max_radius   = max_diameter / 2;
 bore_radius  = leader_bore / 2;
 skirt_radius = skirt_diameter / 2;
 
-// Smoother profile with less mid-body waist
+// Hex body without any mid-body dip
 profile = [
     [0.0,  0.6],
     [2.0,  1.8],
@@ -22,14 +22,14 @@ profile = [
     [16.0, 15.0],
     [20.0, max_radius],   // single apex
     [24.0, 16.0],
-    [28.0, 16.4],
-    [32.0, 16.8],
-    [36.0, 17.2],
-    [40.0, 17.2],
-    [44.0, 17.0],
-    [48.0, 16.6],
+    [28.0, 16.0],
+    [32.0, 16.0],
+    [36.0, 16.0],
+    [40.0, 16.0],
+    [44.0, 16.0],
+    [48.0, 16.0],
     [52.0, 16.0],
-    [56.0, 15.2],
+    [56.0, 16.0],
     [overall_length - skirt_length + 2.0, skirt_radius],
     [overall_length - skirt_length + 6.0, skirt_radius],
     [overall_length, skirt_radius]
