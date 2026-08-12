@@ -17,10 +17,10 @@ profile = [
     [2.0,  1.8],
     [4.0,  4.2],
     [6.5,  7.8],
-    [9.0,  10.8],
+    [9.0, 10.8],
     [12.0, 13.2],
-    [16.0, 15.0],
-    [20.0, max_radius],   // apex
+    [16.0, 14.6],
+    [20.0, 15.4],
     [24.0, 16.0],
     [28.0, 16.0],
     [32.0, 16.0],
@@ -30,9 +30,9 @@ profile = [
     [48.0, 16.0],
     [52.0, 16.0],
     [56.0, 16.0],
-    [overall_length - skirt_length,     16.0],       // stay full
-    [overall_length - skirt_length + 4, 12.0],       // taper starts
-    [overall_length, skirt_radius]                   // final skirt radius
+    [overall_length - skirt_length,     16.0],
+    [overall_length - skirt_length + 4, 12.0],
+    [overall_length, skirt_radius]
 ];
 
 module lure_2d_profile() {
@@ -44,7 +44,7 @@ module lure_2d_profile() {
 }
 
 module lure_body() {
-    rotate_extrude(convexity = 20, $fn = 6)
+    rotate_extrude(convexity = 20, $fn = 64)
         lure_2d_profile();
 }
 
