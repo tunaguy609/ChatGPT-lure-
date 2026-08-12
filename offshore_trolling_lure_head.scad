@@ -11,7 +11,7 @@ max_radius   = max_diameter / 2;
 bore_radius  = leader_bore / 2;
 skirt_radius = skirt_diameter / 2;
 
-// Hex body without any mid-body dip
+// Hex body with even mid-body (no dip)
 profile = [
     [0.0,  0.6],
     [2.0,  1.8],
@@ -20,7 +20,7 @@ profile = [
     [9.0,  10.8],
     [12.0, 13.2],
     [16.0, 15.0],
-    [20.0, max_radius],   // single apex
+    [20.0, max_radius],   // apex
     [24.0, 16.0],
     [28.0, 16.0],
     [32.0, 16.0],
@@ -30,9 +30,9 @@ profile = [
     [48.0, 16.0],
     [52.0, 16.0],
     [56.0, 16.0],
-    [overall_length - skirt_length + 2.0, skirt_radius],
-    [overall_length - skirt_length + 6.0, skirt_radius],
-    [overall_length, skirt_radius]
+    [overall_length - skirt_length,     16.0],       // stay full
+    [overall_length - skirt_length + 4, 12.0],       // taper starts
+    [overall_length, skirt_radius]                   // final skirt radius
 ];
 
 module lure_2d_profile() {
